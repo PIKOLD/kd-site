@@ -383,6 +383,12 @@ textarea.inp{min-height:128px;padding:14px 16px;resize:vertical;line-height:1.45
 .inp::placeholder{color:#6E6E73}
 .inp[aria-invalid=true]{border-color:#ff8a8a}
 .err{font-size:14px;color:#ff9b9b}
+.agree{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;margin-top:20px;font-size:14.5px;line-height:1.5;color:var(--t2,#A1A1A6);cursor:pointer}
+.agree input{width:20px;height:20px;margin:1px 0 0;accent-color:#7C8CFF;cursor:pointer}
+.agree a{color:var(--t,#F5F5F7);text-decoration:underline;text-underline-offset:3px}
+.agree+.err{margin-top:6px;padding-left:34px}
+.legal{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:13.5px}
+.legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .err:empty{display:none}
 .send{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
 .send .btn{min-height:54px;padding:0 30px;font-size:17px}
@@ -479,7 +485,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
       <canvas id="gl" aria-hidden="true"></canvas>
       <div class="ch ch0 on" id="ch0">
         <p class="eyebrow"><b>700+</b> сайтов и концептов · Россия, Швейцария, США</p>
-        <h1>Проектируем и разрабатываем <span class="grad">сайты для бизнеса.</span></h1>
+        <h1>Проектируем и разрабатываем <span class="grad">сайты для бизнеса</span></h1>
         <p class="lead">Первый экран вашего сайта — за 24 часа, <b>до договора и оплаты</b>.<span class="l2"> Объём, срок и цену фиксируем в договоре.</span></p>
         <div class="cta" id="heroCta"><a class="btn" href="#calc">Рассчитать стоимость</a><a class="btn ghost" href="#projects">Посмотреть проекты</a></div>
         <div class="fdev" id="fdevHero"><img src="../assets/video/masy.jpg" alt="Сайт бренда MASY на экране ноутбука" width="960" height="600"></div>
@@ -489,7 +495,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
         <div class="ch-in">
           <div class="ch-box">
             <p class="eyebrow">На экране — работающие сайты</p>
-            <h2>Не картинки. <span class="grad">Живые сайты.</span></h2>
+            <h2>Не картинки, <span class="grad">а живые сайты</span></h2>
             <ul class="vlist" id="vlist" aria-label="Какой сайт показать на экране"></ul>
             <p class="vnow" id="vnow" aria-live="polite"></p>
             <a class="more vopen" id="vopen" href="#" target="_blank" rel="noopener">Открыть сайт</a>
@@ -501,7 +507,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
         <div class="ch-in">
           <div class="ch-box">
             <p class="eyebrow">Из чего состоит проект</p>
-            <h2>Четыре слоя каждого сайта.</h2>
+            <h2>Четыре слоя каждого сайта</h2>
             <ol class="layers">
               <li><span><b>Код</b>Лёгкий и быстрый. Шрифты и библиотеки лежат на самом сайте — открывается без VPN.</span></li>
               <li><span><b>Макет</b>Путь клиента от первого экрана до заявки.</span></li>
@@ -518,7 +524,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="principles">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Сначала сайт.<br>Потом деньги.</h2></div>
+        <div><h2>Сначала сайт,<br>потом деньги</h2></div>
         <p class="lead">Вы видите первый экран своего сайта до того, как подписываете договор и платите. Так начинается каждый проект.</p>
       </div>
       <div class="bento">
@@ -535,7 +541,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="projects">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Проекты клиентов.</h2></div>
+        <div><h2>Проекты клиентов</h2></div>
         <p class="lead">Задача, что сделано и текущий статус. Каждый сайт открывается по ссылке.</p>
       </div>
       <div class="projects" id="projList"></div>
@@ -546,7 +552,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="works">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Все работы.</h2><p class="lead" style="margin-top:16px">Клиентские проекты и концепты в разных нишах.</p></div>
+        <div><h2>Все работы</h2><p class="lead" style="margin-top:16px">Клиентские проекты и концепты в разных нишах.</p></div>
         <div class="chips" id="wkChips" role="group" aria-label="Фильтр работ"></div>
       </div>
     </div>
@@ -563,7 +569,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="packages">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Пакеты и цены.</h2></div>
+        <div><h2>Пакеты и цены</h2></div>
         <p class="lead">Цена зависит от объёма работ. Итоговую сумму называем после демо и закрепляем в договоре.</p>
       </div>
       <div class="plans" id="plans"></div>
@@ -599,7 +605,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
       <div class="bots">
         <div>
           <div class="rise">
-            <h2>Telegram-боты.</h2>
+            <h2>Telegram-боты</h2>
             <p class="lead" style="margin:18px 0 30px">Берут на себя запись, типовые вопросы и сбор заявок. Подключаются к сайту или работают отдельно.</p>
           </div>
           <div class="plist rise" id="botList"></div>
@@ -617,7 +623,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="process">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Процесс.</h2></div>
+        <div><h2>Процесс</h2></div>
         <p class="lead">Пять этапов. Оплата начинается после демо и подписания договора.</p>
       </div>
       <ol class="flow rise" id="flow"></ol>
@@ -632,7 +638,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="quality">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Под капотом.</h2></div>
+        <div><h2>Под капотом</h2></div>
         <p class="lead">То, чего не видно на картинке, но заметно в работе сайта.</p>
       </div>
       <div class="qual" id="qual"></div>
@@ -643,7 +649,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="terms">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Условия и ответственность.</h2></div>
+        <div><h2>Условия и ответственность</h2></div>
         <p class="lead">Всё, что обычно уточняют перед договором, — заранее.</p>
       </div>
       <div class="terms">
@@ -683,7 +689,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <section class="sec" id="calc">
     <div class="wrap">
       <div class="head rise">
-        <div><h2>Расчёт стоимости.</h2></div>
+        <div><h2>Расчёт стоимости</h2></div>
         <p class="lead">Отметьте, что нужно, — ориентир по цене и сроку посчитается сразу. Заявка откроется в Telegram готовым сообщением.</p>
       </div>
       <div class="cgrid">
@@ -701,6 +707,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
             <div class="fld"><label for="fName">Имя</label><input class="inp" id="fName" autocomplete="name" placeholder="Как к вам обращаться"></div>
             <div class="fld"><label for="fContact">Telegram или телефон</label><input class="inp" id="fContact" autocomplete="tel" placeholder="@username или +7 900 000-00-00" aria-describedby="eContact" required><p class="err" id="eContact" role="alert"></p></div>
             <div class="hp" aria-hidden="true"><label>Не заполняйте <input id="fHp" tabindex="-1" autocomplete="off"></label></div>
+            <label class="agree"><input type="checkbox" id="fAgree" aria-describedby="eAgree"><span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> на условиях <a href="privacy.html" target="_blank" rel="noopener">политики конфиденциальности</a></span></label><p class="err" id="eAgree" role="alert"></p>
             <div class="send"><button class="btn blue" type="submit" id="sendBtn">Отправить заявку</button><p class="fine">Откроется Telegram с текстом заявки — останется нажать «Отправить». Заявка ни к чему не обязывает.</p></div>
             <div class="sent" id="sent" hidden role="status"><p><b>Telegram открыт в новой вкладке.</b> Отправьте сообщение — после этого начнём работу над демо.</p><div class="row"><a class="more" id="sentLink" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Открыть Telegram ещё раз</a><button class="more" type="button" id="copyBtn">Скопировать текст заявки</button></div></div>
           </fieldset>
@@ -723,14 +730,14 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
   <!-- ── Вопросы ── -->
   <section class="sec" id="faq">
     <div class="wrap">
-      <div class="head rise"><div><h2>Вопросы.</h2></div></div>
+      <div class="head rise"><div><h2>Вопросы</h2></div></div>
       <div class="faq" id="faqList"></div>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
-      <h2 class="rise">Обсудим ваш <span class="grad">проект.</span></h2>
+      <h2 class="rise">Обсудим ваш <span class="grad">проект</span></h2>
       <p class="lead">Опишите задачу — первый экран сайта подготовим за 24 часа. Бесплатно, до договора и оплаты.</p>
       <div class="cta"><a class="btn" href="#calc">Рассчитать стоимость</a><a class="btn ghost" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Написать в Telegram</a></div>
     </div>
@@ -743,6 +750,8 @@ footer .links{display:flex;flex-wrap:wrap;gap:0 22px}
       <span><b style="color:var(--t)">К&amp;Д</b> — разработка сайтов и Telegram-ботов. Самозанятые, чек на каждую оплату.</span>
       <span class="links"><a href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Telegram — заявки</a><a href="https://t.me/usamaluh" target="_blank" rel="noopener">Telegram — второй контакт</a></span>
     </div>
+    <p>Исполнитель: Кухта Кирилл [отчество], плательщик налога на профессиональный доход (самозанятый), ИНН [ИНН]. Информация на сайте носит справочный характер и не является публичной офертой (ст. 437 ГК РФ).</p>
+    <p class="legal"><a href="privacy.html">Политика конфиденциальности</a><a href="consent.html">Согласие на обработку персональных данных</a></p>
     <p>Работы с пометкой «Концепт» сделаны по нашей инициативе и не являются заказами; права на названия и фотографии принадлежат их владельцам.</p>
   </div>
 </footer>
@@ -1101,6 +1110,7 @@ function checkContact() {
   return !m;
 }
 $('#fContact').addEventListener('blur', () => { if ($('#fContact').value.trim()) checkContact(); });
+$('#fAgree').addEventListener('change', () => { if ($('#fAgree').checked) $('#eAgree').textContent = ''; });
 function message(s) {
   const e = estimate(s), L = ['Здравствуйте! Заявка с сайта.'];
   if (s.biz) L.push('Сфера: ' + s.biz);
@@ -1119,6 +1129,8 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   if ($('#fHp').value) return;
   if (!checkContact()) { $('#fContact').focus(); return; }
+  if (!$('#fAgree').checked) { $('#eAgree').textContent = 'Отметьте согласие на обработку персональных данных — без него мы не можем принять заявку.'; $('#fAgree').focus(); return; }
+  $('#eAgree').textContent = '';
   lastText = message(state());
   const href = TG + '?text=' + encodeURIComponent(lastText);
   $('#sentLink').href = href; $('#sent').hidden = false; $('#copyBtn').textContent = 'Скопировать текст заявки';
