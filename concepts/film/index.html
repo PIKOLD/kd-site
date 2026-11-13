@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>window.__errs=[];addEventListener('error',e=>__errs.push(String(e.message)+' @'+String(e.filename).split('/').pop()+':'+e.lineno));</script>
+<script>if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('static');</script>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кирилл и Даня — сайт, который хочется листать</title>
+<meta name="description" content="Кирилл и Даня делают сайты и Telegram-ботов. Первый экран вашего сайта — бесплатно, за 24 часа.">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="../../assets/fonts/inter.css">
+<link rel="stylesheet" href="../../assets/fonts/unbounded.css">
+<style>
+:root{
+  --bg:#000; --fg:#F5F5F7; --fg2:#A1A1A6; --line:rgba(255,255,255,.12);
+  --ice1:#EAF2FF; --ice2:#9CC4FF; --ice3:#7C8CFF;
+  --ice:linear-gradient(135deg,#EAF2FF 0%,#9CC4FF 55%,#7C8CFF 100%);
+  --sans:-apple-system,'SF Pro Text','Inter',system-ui,'Segoe UI',sans-serif;
+  --disp:'Unbounded','Inter',system-ui,sans-serif;
+  --gut:clamp(16px,2.2vw,32px);
+}
+*{box-sizing:border-box}
+html{background:var(--bg);overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ice2);outline-offset:3px;border-radius:6px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- верхняя строка ---------- */
+.top{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top) + 18px) var(--gut) 0;pointer-events:none}
+.top a{pointer-events:auto;text-decoration:none}
+.mark{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.02em;padding:6px 2px}
+.mark span{background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-top{font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;border:1px solid rgba(156,196,255,.38);background:rgba(10,12,20,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .25s,border-color .25s}
+.btn-top:hover{background:rgba(156,196,255,.14);border-color:rgba(156,196,255,.7)}
+
+/* ---------- индикатор сцен ---------- */
+.rail{position:fixed;z-index:20;right:calc(var(--gut) - 6px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px;margin:0;padding:0;list-style:none}
+.rail button{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;width:28px;height:22px;border-radius:4px}
+.rail button i{display:block;width:2px;height:10px;border-radius:2px;background:rgba(245,245,247,.28);transition:height .35s cubic-bezier(.2,.7,.2,1),background .35s}
+.rail button:hover i{background:rgba(245,245,247,.7)}
+.rail button.on i{height:26px;background:linear-gradient(#EAF2FF,#7C8CFF)}
+.rail button:focus-visible{outline:2px solid var(--ice2);outline-offset:1px}
+
+/* ---------- плёнка ---------- */
+.film{position:relative;height:1400vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ov{position:absolute;inset:0;pointer-events:none}
+.ov>.l{position:absolute;visibility:hidden;opacity:0;will-change:opacity,transform}
+.vbox{position:fixed;left:0;top:0;width:2px;height:2px;overflow:hidden;clip-path:inset(50%);pointer-events:none}
+.vbox video{width:2px;height:2px}
+
+/* сцена 1 */
+.s1cap{left:var(--gut);right:var(--gut);text-align:center}
+.s1cap .lead{margin:0;font-size:clamp(19px,2.3vw,34px);font-weight:500;letter-spacing:-.015em;color:var(--fg)}
+.s1cap .by{margin:14px 0 0;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--fg2)}
+.hint{left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 26px);text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg2)}
+.hint::after{content:"";display:block;width:1px;height:34px;margin:12px auto 0;background:linear-gradient(var(--ice2),transparent);animation:drip 2.2s cubic-bezier(.5,0,.3,1) infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* сцена 2 */
+.s2shade{inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.25) 38%,rgba(0,0,0,0) 60%),radial-gradient(120% 80% at 0% 100%,rgba(0,0,0,.45),transparent 60%)}
+.s2title{left:var(--gut);bottom:14svh;margin:0;max-width:12ch;font-weight:600;font-size:clamp(36px,6.4vw,112px);line-height:.98;letter-spacing:-.045em;text-shadow:0 4px 60px rgba(0,0,0,.45)}
+.s2title em{font-style:normal;background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s2cap{right:calc(var(--gut) + 28px);bottom:14svh;text-align:right;display:flex;flex-direction:column;gap:6px}
+.s2cap .n{font-size:13px;font-weight:600;letter-spacing:.14em;color:var(--ice2);font-variant-numeric:tabular-nums}
+.s2cap .nm{font-size:clamp(20px,1.9vw,28px);font-weight:600;letter-spacing:-.02em}
+.s2cap .tg{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg2)}
+
+/* сцена 3 */
+.s3cap{left:var(--gut);right:var(--gut);text-align:center}
+.s3cap .big{margin:0;font-size:clamp(22px,2.7vw,42px);font-weight:500;letter-spacing:-.02em}
+.s3cap .sub{margin:14px auto 0;max-width:36ch;font-size:clamp(15px,1.25vw,19px);line-height:1.45;color:var(--fg2)}
+.s3cap .sub b{color:var(--fg);font-weight:600}
+
+/* сцена 4 */
+.s4word{left:0;right:0;text-align:center;font-family:var(--disp);font-weight:600;font-size:clamp(22px,3.2vw,54px);letter-spacing:.62em;padding-left:.62em;line-height:1}
+.s4word span{background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s4proc{left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 9svh);height:84px}
+.s4proc .hd{position:absolute;left:0;right:0;top:-34px;text-align:center;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--fg2)}
+.track{position:absolute;left:0;top:0;display:flex;margin:0;padding:0;list-style:none;white-space:nowrap;will-change:transform}
+.track li{position:relative;padding:0 clamp(22px,3vw,48px);text-align:center;opacity:.26;transition:opacity .45s}
+.track li.on{opacity:1}
+.track li:not(:last-child)::after{content:"→";position:absolute;right:-.5em;top:.18em;font-size:clamp(18px,2vw,30px);color:var(--fg2);opacity:.6}
+.track b{display:block;font-size:clamp(24px,2.8vw,44px);font-weight:600;letter-spacing:-.03em}
+.track li.on b{background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+.track span{display:block;margin-top:8px;font-size:14px;color:var(--fg2)}
+
+/* сцена 5 */
+.who{top:0;display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);font-family:var(--disp);font-weight:700;font-size:min(5.6vw,96px);letter-spacing:-.01em;line-height:1}
+.who .nm{background:linear-gradient(180deg,#F5F5F7 30%,#9CC4FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:.06em 0}
+.ava{pointer-events:auto;flex:none;display:block;width:clamp(48px,4.6vw,76px);height:clamp(48px,4.6vw,76px);border-radius:50%;overflow:hidden;border:1px solid rgba(156,196,255,.45);box-shadow:0 0 0 4px rgba(124,140,255,.08)}
+.ava img{width:100%;height:100%;object-fit:cover;display:block}
+.s5cap{left:var(--gut);right:var(--gut);text-align:center}
+.s5cap p{margin:0;font-size:clamp(17px,1.7vw,24px);font-weight:500;letter-spacing:-.01em}
+.s5cap small{display:block;margin-top:10px;font-size:13px;color:var(--fg2);letter-spacing:.02em}
+
+/* сцена 6 — титры */
+.crwin{inset:0;-webkit-mask-image:linear-gradient(transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(transparent 0,#000 16%,#000 84%,transparent 100%)}
+.crroll{position:absolute;left:0;right:0;top:0;padding:0 var(--gut);will-change:transform}
+.cr-h{margin:0 0 6svh;text-align:center;font-size:12px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:var(--ice2)}
+.cr-h.gap{margin-top:16svh}
+.row{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,4vw,64px);align-items:baseline;margin:0 auto 7svh;max-width:1200px}
+.row .r{text-align:right;font-size:clamp(18px,2.2vw,34px);font-weight:500;color:var(--fg2);letter-spacing:-.01em}
+.row .v{text-align:left;font-size:clamp(30px,4.6vw,78px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.row .v small{display:block;margin-top:10px;font-size:clamp(13px,1vw,15px);font-weight:500;letter-spacing:0;color:var(--fg2)}
+.row .v small em{font-style:normal;color:var(--ice2)}
+.row.sm .r{font-size:clamp(14px,1.3vw,19px)}
+.row.sm .v{font-size:clamp(20px,2.2vw,34px);letter-spacing:-.02em;line-height:1.15}
+.row.sm{margin-bottom:4.5svh}
+.cr-end{margin:18svh 0 0;text-align:center;font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.4vw,72px);letter-spacing:-.01em}
+.cr-end span{background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* сцена 7 */
+.s7{left:var(--gut);right:var(--gut);text-align:center}
+.acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{pointer-events:auto;display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font-size:16px;font-weight:600;letter-spacing:-.01em;text-decoration:none;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background .25s}
+.btn.pri{background:var(--ice);color:#05060B;box-shadow:0 10px 40px rgba(124,140,255,.28)}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 14px 50px rgba(124,140,255,.42)}
+.btn.sec{border:1px solid rgba(245,245,247,.26);color:var(--fg);background:rgba(255,255,255,.03)}
+.btn.sec:hover{background:rgba(255,255,255,.08)}
+.s7 .note{margin:18px 0 0;font-size:14px;color:var(--fg2)}
+.s7 .note a{pointer-events:auto;color:var(--fg);text-underline-offset:3px;text-decoration-color:rgba(156,196,255,.5)}
+
+/* плашка */
+.plate{position:relative;z-index:21;padding:16px var(--gut) calc(env(safe-area-inset-bottom) + 16px);border-top:1px solid var(--line);background:#000;font-size:13px;color:var(--fg2);text-align:center}
+.plate a{color:var(--fg);text-underline-offset:3px}
+
+/* ---------- запасной вид ---------- */
+.still{display:none}
+html.static .film,html.static .rail{display:none}
+html.static .still{display:block}
+.still section{min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14svh var(--gut);border-bottom:1px solid rgba(255,255,255,.06)}
+.still .w{margin:0;font-family:var(--disp);font-weight:700;line-height:.92;letter-spacing:-.01em;font-size:clamp(64px,21vw,340px);color:var(--fg)}
+.still .w.md{font-size:clamp(48px,13vw,220px)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .still .w.img{background:var(--img) center/cover no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent}
+  .still .w.ice{background:var(--ice);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
+.still .w.out{color:transparent;-webkit-text-stroke:2px #9CC4FF;text-shadow:0 0 40px rgba(124,140,255,.35)}
+.still .lead{margin:22px 0 0;font-size:clamp(19px,2.3vw,32px);font-weight:500}
+.still .by{margin:12px 0 0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg2)}
+.still .t2{margin:0 0 6svh;font-size:clamp(34px,6vw,96px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:min(1200px,100%);margin:0;padding:0;list-style:none}
+.frames figure{margin:0;text-align:left}
+.frames img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;background:#111}
+.frames figcaption{margin-top:8px;font-size:14px;font-weight:600}
+.frames figcaption span{margin-left:8px;font-weight:500;color:var(--fg2);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.still .sub{margin:16px auto 0;max-width:38ch;font-size:clamp(16px,1.4vw,20px);line-height:1.45;color:var(--fg2)}
+.still ol{margin:5svh 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center}
+.still ol b{display:block;font-size:22px;font-weight:600}
+.still ol span{font-size:14px;color:var(--fg2)}
+.duo{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;font-family:var(--disp);font-weight:700;font-size:clamp(36px,7vw,110px)}
+.duo img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid rgba(156,196,255,.45)}
+.prices{width:min(1000px,100%);margin:0;padding:0;list-style:none}
+.prices li{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:baseline;padding:2.4svh 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.prices .r{text-align:right;color:var(--fg2);font-size:clamp(16px,1.8vw,26px)}
+.prices .v{text-align:left;font-size:clamp(26px,3.6vw,58px);font-weight:600;letter-spacing:-.03em}
+.still .acts{margin-top:5svh}
+
+/* ---------- телефон ---------- */
+@media (max-width:760px), (orientation:portrait) and (max-width:900px){
+  .btn-top{font-size:13px;padding:9px 14px}
+  .rail{right:4px}
+  .rail button{width:18px;height:18px}
+  .rail button i{height:7px}
+  .rail button.on i{height:18px}
+  .s2title{top:calc(env(safe-area-inset-top) + 11svh);bottom:auto;right:var(--gut);max-width:none;font-size:clamp(34px,10.5vw,64px)}
+  .s2cap{left:var(--gut);right:var(--gut);bottom:calc(env(safe-area-inset-bottom) + 12svh);text-align:left}
+  .s2shade{background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 30%,transparent 70%,rgba(0,0,0,.55))}
+  .row{grid-template-columns:1fr;text-align:center;row-gap:10px;margin-bottom:6svh}
+  .row .r,.row .v{text-align:center}
+  .frames{grid-template-columns:1fr}
+  .prices li{grid-template-columns:1fr;gap:6px}
+  .prices .r,.prices .v{text-align:center}
+  .btn{width:100%;max-width:340px}
+}
+@media (orientation:portrait){
+  .who{font-size:min(12vw,64px)}
+  .s5cap{top:auto;bottom:calc(env(safe-area-inset-bottom) + 8svh)}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="#" aria-label="Кирилл и Даня — в начало">К<span>&amp;</span>Д</a>
+  <a class="btn-top" href="../../a/order.html">Собрать заказ</a>
+</header>
+
+<nav aria-label="Сцены">
+  <ul class="rail" id="rail"></ul>
+</nav>
+
+<main>
+  <h1 class="sr">Кирилл и Даня — сайт, который хочется листать</h1>
+
+  <div class="film" id="film">
+    <div class="stage" id="stage">
+      <canvas id="gl" aria-hidden="true"></canvas>
+      <div class="ov" id="ov">
+        <div class="l s1cap" id="s1cap">
+          <p class="lead">который хочется листать.</p>
+          <p class="by">Кирилл и Даня</p>
+        </div>
+        <div class="l hint" id="hint" aria-hidden="true">Листайте</div>
+
+        <div class="l s2shade" id="s2shade" aria-hidden="true"></div>
+        <h2 class="l s2title" id="s2title">Показываем, <em>а не рассказываем.</em></h2>
+        <div class="l s2cap" id="s2cap" aria-live="polite">
+          <span class="n" id="clipN">01 / 06</span>
+          <span class="nm" id="clipName">cat28lin</span>
+          <span class="tg" id="clipTag">концепт</span>
+        </div>
+
+        <div class="l s3cap" id="s3cap">
+          <h2 class="sr">0 ₽</h2>
+          <p class="big">пока не увидели демо.</p>
+          <p class="sub"><b>Первый экран вашего сайта — бесплатно, за 24 часа.</b> Платите потом — 50/50.</p>
+        </div>
+
+        <div class="l s4word" id="s4word"><h2 class="sr">24 часа</h2><span aria-hidden="true">ЧАСА</span></div>
+        <div class="l s4proc" id="s4proc">
+          <div class="hd">Как идёт работа</div>
+          <ol class="track" id="track">
+            <li><b>Заявка</b><span>10 минут</span></li>
+            <li><b>Демо</b><span>24 часа, бесплатно</span></li>
+            <li><b>Договор</b><span>предоплата — половина</span></li>
+            <li><b>Сборка</b><span>3–10 дней</span></li>
+            <li><b>Запуск</b><span>домен и доступы — у вас</span></li>
+          </ol>
+        </div>
+
+        <div class="l who" id="whoK">
+          <a class="ava" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener" aria-label="Кирилл в Telegram"><img src="../../assets/team/kirill.jpg" alt="Кирилл" width="76" height="76"></a>
+          <span class="nm">Кирилл</span>
+        </div>
+        <div class="l who" id="whoD">
+          <span class="nm">Даня</span>
+          <a class="ava" href="https://t.me/usamaluh" target="_blank" rel="noopener" aria-label="Даня в Telegram"><img src="../../assets/team/danya.jpg" alt="Даня" width="76" height="76"></a>
+        </div>
+        <div class="l s5cap" id="s5cap">
+          <h2 class="sr">Двое</h2>
+          <p>Делаем одно дело. Один ведёт проект, второй проверяет.</p>
+          <small>Оба — дизайн, код, 3D и боты. Работаем с ИИ, поэтому быстро и недорого.</small>
+        </div>
+
+        <div class="l crwin" id="crwin">
+          <div class="crroll" id="crroll">
+            <h2 class="cr-h">Цены</h2>
+            <div class="row"><span class="r">Визитка</span><span class="v">от 3 500 ₽<small>1–2 дня</small></span></div>
+            <div class="row"><span class="r">Лендинг</span><span class="v">от 15 000 ₽<small>3–5 дней · <em>берут чаще всего</em></small></span></div>
+            <div class="row"><span class="r">Сайт с каталогом</span><span class="v">от 30 000 ₽<small>7–10 дней</small></span></div>
+            <div class="row"><span class="r">Флагман с 3D</span><span class="v">от 90 000 ₽<small>2–3 недели</small></span></div>
+            <div class="row"><span class="r">Бот</span><span class="v">от 5 000 ₽<small>автоответчик · с онлайн-записью — 9 500 ₽</small></span></div>
+            <h3 class="cr-h gap">Условия</h3>
+            <div class="row sm"><span class="r">Демо</span><span class="v">бесплатно, за 24 часа</span></div>
+            <div class="row sm"><span class="r">Оплата</span><span class="v">50/50, самозанятые, чек</span></div>
+            <div class="row sm"><span class="r">Домен и доступы</span><span class="v">у вас</span></div>
+            <div class="row sm"><span class="r">Собрано</span><span class="v">700+ сайтов и концептов</span></div>
+            <div class="row sm"><span class="r">География</span><span class="v">Россия, Швейцария, США</span></div>
+            <div class="row sm"><span class="r">Клиенты</span><span class="v">Miele, MASY, PM CODE, D’ajour</span></div>
+            <p class="cr-end">Кирилл <span>&amp;</span> Даня</p>
+          </div>
+        </div>
+
+        <div class="l s7" id="s7">
+          <h2 class="sr">Ваш сайт</h2>
+          <div class="acts">
+            <a class="btn pri" href="../../a/order.html">Собрать заказ</a>
+            <a class="btn sec" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Написать в Telegram</a>
+          </div>
+          <p class="note">Первый экран — бесплатно, за 24 часа, до оплаты. Или напишите <a href="https://t.me/usamaluh" target="_blank" rel="noopener">Дане</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Запасной вид: prefers-reduced-motion или сбой WebGL -->
+  <div class="still" id="still">
+    <section>
+      <p class="w img" style="--img:url(../../assets/video/cat28lin.jpg)">САЙТ</p>
+      <p class="lead">который хочется листать.</p>
+      <p class="by">Кирилл и Даня</p>
+    </section>
+    <section>
+      <h2 class="t2">Показываем, а не рассказываем.</h2>
+      <ul class="frames">
+        <li><figure><img src="../../assets/video/cat28lin.jpg" alt="Сайт cat28lin" loading="lazy"><figcaption>cat28lin<span>концепт</span></figcaption></figure></li>
+        <li><figure><img src="../../assets/video/miele.jpg" alt="Сайт шоурума Miele" loading="lazy"><figcaption>Шоурум Miele<span>клиент</span></figcaption></figure></li>
+        <li><figure><img src="../../assets/video/masy.jpg" alt="Сайт MASY" loading="lazy"><figcaption>MASY<span>клиент</span></figcaption></figure></li>
+        <li><figure><img src="../../assets/video/bonkombinezon.jpg" alt="Сайт Bonkombinezon" loading="lazy"><figcaption>Bonkombinezon<span>концепт</span></figcaption></figure></li>
+        <li><figure><img src="../../assets/video/allyouall.jpg" alt="Сайт All." loading="lazy"><figcaption>All.<span>концепт</span></figcaption></figure></li>
+        <li><figure><img src="../../assets/video/hamlet.jpg" alt="Сайт Hamlet Coffee" loading="lazy"><figcaption>Hamlet Coffee<span>концепт</span></figcaption></figure></li>
+      </ul>
+    </section>
+    <section>
+      <p class="w ice">0 ₽</p>
+      <p class="lead">пока не увидели демо.</p>
+      <p class="sub">Первый экран вашего сайта — бесплатно, за 24 часа.</p>
+    </section>
+    <section>
+      <p class="w md ice">24 ЧАСА</p>
+      <ol>
+        <li><b>Заявка</b><span>10 минут</span></li>
+        <li><b>Демо</b><span>24 часа, бесплатно</span></li>
+        <li><b>Договор</b><span>предоплата — половина</span></li>
+        <li><b>Сборка</b><span>3–10 дней</span></li>
+        <li><b>Запуск</b><span>домен и доступы — у вас</span></li>
+      </ol>
+    </section>
+    <section>
+      <div class="duo"><img src="../../assets/team/kirill.jpg" alt="Кирилл" loading="lazy">Кирилл &amp; Даня<img src="../../assets/team/danya.jpg" alt="Даня" loading="lazy"></div>
+      <p class="sub">Делаем одно дело. Один ведёт проект, второй проверяет.</p>
+    </section>
+    <section>
+      <h2 class="t2">Цены</h2>
+      <ul class="prices">
+        <li><span class="r">Визитка</span><span class="v">от 3 500 ₽</span></li>
+        <li><span class="r">Лендинг</span><span class="v">от 15 000 ₽</span></li>
+        <li><span class="r">Сайт с каталогом</span><span class="v">от 30 000 ₽</span></li>
+        <li><span class="r">Флагман с 3D</span><span class="v">от 90 000 ₽</span></li>
+        <li><span class="r">Бот</span><span class="v">от 5 000 ₽</span></li>
+      </ul>
+    </section>
+    <section>
+      <p class="w md out">ВАШ САЙТ</p>
+      <div class="acts">
+        <a class="btn pri" href="../../a/order.html">Собрать заказ</a>
+        <a class="btn sec" href="https://t.me/AI_KUHTA" target="_blank" rel="noopener">Написать в Telegram</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="vbox" id="vbox" aria-hidden="true"></div>
+
+<footer class="plate">Концепция 5: Кино. <a href="../index.html">Вернуться к списку</a></footer>
+
+<script type="importmap">{"imports":{"three":"../../assets/lib/three.module.js"}}</script>
+<script type="module" src="scene.js"></script>
+<script>setTimeout(function(){if(!window.__filmOK)document.documentElement.classList.add('static');},7000);</script>
+</body>
+</html>
