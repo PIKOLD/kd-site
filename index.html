@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кирилл и Даня — два варианта сайта</title>
+<link rel="stylesheet" href="assets/fonts/inter.css">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:#000}
+body{font-family:-apple-system,'SF Pro Display','Inter',system-ui,sans-serif;color:#F5F5F7;min-height:100vh;display:grid;place-items:center;padding:40px 18px;-webkit-font-smoothing:antialiased;background:radial-gradient(60vmax 60vmax at 0 0,rgba(43,91,255,.2),transparent 70%),radial-gradient(60vmax 60vmax at 100% 100%,rgba(107,75,255,.18),transparent 70%)}
+main{width:100%;max-width:880px}
+h1{font-size:clamp(32px,5vw,56px);font-weight:600;letter-spacing:-.03em;line-height:1.05}
+p.lead{color:#A1A1A6;font-size:18px;margin-top:12px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:32px}
+@media (max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+a{display:block;text-decoration:none;color:inherit;padding:28px 26px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transition:transform .3s,border-color .3s}
+a:hover{transform:translateY(-4px);border-color:rgba(156,196,255,.55)}
+a:focus-visible{outline:3px solid #9CC4FF;outline-offset:3px}
+b{display:block;font-size:26px;letter-spacing:-.02em}
+span{display:block;color:#A1A1A6;font-size:15.5px;line-height:1.45;margin-top:8px}
+i{display:block;font-style:normal;color:#7DB8FF;margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+<h1>Кирилл и Даня</h1>
+<p class="lead">Два варианта сайта. Лучше смотреть с компьютера, но на телефоне тоже работает.</p>
+<div class="two">
+<a href="v4/"><b>Версия 4</b><span>Тёмная, одна длинная страница: 3D-ноутбук и телефон, работы стопкой, пакеты и цены.</span><i>Открыть ›</i></a>
+<a href="v5/"><b>Версия 5</b><span>Тёмная, с конструктором заказа: выбираешь, что нужно, и заявка уходит в Telegram.</span><i>Открыть ›</i></a>
+</div>
+</main>
+</body>
+</html>
