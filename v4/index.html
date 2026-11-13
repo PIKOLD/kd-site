@@ -195,6 +195,7 @@ h3{font-size:21px;line-height:1.2;letter-spacing:-.012em}
 .case dl div{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;padding:11px 0;border-top:1px solid var(--edge);font-size:15.5px}
 .case dt{color:var(--mute)}.case dd{color:var(--soft)}
 .case .more{margin-top:auto;padding-top:6px}
+@media (min-width:861px){.case:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row}.case:last-child:nth-child(odd) .pic{flex:0 0 50%;aspect-ratio:auto;min-height:100%;border-bottom:0;border-right:1px solid var(--edge)}}
 @media (max-width:860px){.cases{grid-template-columns:minmax(0,1fr)}.case dl div{grid-template-columns:96px minmax(0,1fr)}}
 
 /* пакеты */
@@ -444,21 +445,8 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
 
 <section class="sec" id="cases">
   <div class="wrap">
-    <div class="head rise"><h2>Четыре истории подробнее.</h2><p class="lead">Что было нужно, что мы сделали и сколько это заняло.</p></div>
+    <div class="head rise"><h2>Три истории подробнее.</h2><p class="lead">Что было нужно, что мы сделали и сколько это заняло.</p></div>
     <div class="cases">
-      <article class="case glass rise spot">
-        <div class="pic"><img src="../assets/shots/miele-perm.jpg" alt="Сайт шоурума Miele в Перми" loading="lazy" width="1000" height="500"></div>
-        <div class="txt">
-          <h3>Шоурум Miele, Пермь <span class="kind client">Клиент</span></h3>
-          <p>Шоуруму премиальной техники нужен был каталог, который владелец ведёт сам, без программиста.</p>
-          <dl>
-            <div><dt>Сделали</dt><dd>Каталог на 116 товаров по разделам, остатки «в наличии / под заказ», кабинет для цен и скидок, коммерческое предложение в PDF из корзины</dd></div>
-            <div><dt>Срок</dt><dd>Демо — через два дня после первого сообщения</dd></div>
-            <div><dt>Правки</dt><dd>Три круга по спискам клиента, каждый внесён в тот же день</dd></div>
-          </dl>
-          <a class="more" href="https://pikold.github.io/miele-perm-demo/" target="_blank" rel="noopener">Открыть сайт</a>
-        </div>
-      </article>
       <article class="case glass rise spot">
         <div class="pic"><img src="../assets/shots/masy.jpg" alt="Сайт бренда MASY" loading="lazy" width="1000" height="500"></div>
         <div class="txt">
@@ -527,7 +515,7 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
         <p class="for">Магазину, шоуруму или бренду с ассортиментом, который меняется.</p>
         <p class="sum"><small>от</small>30 000 ₽</p><p class="days">7–10 дней</p>
         <ul><li>Каталог с разделами и поиском</li><li>Карточки товаров с фото</li><li>Корзина и заявки</li><li>Кабинет: сами меняете цены и наличие</li><li>Всё из «Лендинга»</li><li>Обучение работе с кабинетом</li></ul>
-        <p class="eg">Пример: <a href="https://pikold.github.io/miele-perm-demo/" target="_blank" rel="noopener">шоурум Miele</a></p>
+        <p class="eg">Пример: <a href="https://pikold.github.io/demo-sites/bonkombinezon/" target="_blank" rel="noopener">Bonkombinezon</a></p>
         <a class="btn" href="#brief">Выбрать</a>
       </article>
       <article class="plan glass rise spot">
@@ -780,7 +768,6 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
   /* видео на 3D-экране */
   const V = window.VIDS = [
     ['cat28lin', 'cat28lin', 'Портупеи и ремни. Концепт с 3D', demo('cat28lin')],
-    ['miele', 'Шоурум Miele', 'Каталог и кабинет. Клиент', 'https://pikold.github.io/miele-perm-demo/'],
     ['masy', 'MASY', 'Бренд одежды. Клиент', 'https://bymasy.ru/v1/'],
     ['bonkombinezon', 'Bonkombinezon', 'Зимние комбинезоны. Концепт', demo('bonkombinezon')],
     ['allyouall', 'All.', 'Мужская одежда. Концепт', demo('all-youall')],
@@ -816,7 +803,6 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
 
   /* работы */
   const W = [
-    ['клиенты', 'miele-perm', 'Шоурум Miele', 'Пермь. Каталог на 116 товаров, кабинет со складом, PDF-предложения', 'client', 'https://pikold.github.io/miele-perm-demo/'],
     ['3d', 'mgla', 'МГЛА', 'Вымышленный бренд парфюмерии. Флакон из стекла, собранный в коде', 'concept', '../flagship/index.html'],
     ['3d', 'cat28lin', 'cat28lin', 'Портупеи и ремни из кожи', 'concept', demo('cat28lin')],
     ['клиенты', 'masy', 'MASY', 'Бренд верхней одежды, Пермь', 'client', 'https://bymasy.ru/v1/'],
@@ -836,7 +822,7 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
     ['услуги', 'kislota', 'Кислота', 'Тату-салон', 'concept', demo('kislota')],
     ['мир', 'curate-collective', 'Curate Collective', 'Стритвир и кроссовки, Тампа', 'concept', demo('curate-collective')],
   ];
-  const BEST = ['miele-perm', 'mgla', 'cat28lin', 'masy', 'bonkombinezon', 'dajour', 'all-youall', 'hamlet-coffee-company'];
+  const BEST = ['masy', 'mgla', 'cat28lin', 'pm-code', 'bonkombinezon', 'dajour', 'all-youall', 'hamlet-coffee-company'];
   const wk = $('#works'), stack = $('#wkStack'), wkNow = $('#wkNow');
   const el = { n: $('#wkN'), t: $('#wkT'), name: $('#wkName'), what: $('#wkWhat'), kind: $('#wkKind'), link: $('#wkLink'), prev: $('#wkPrev'), next: $('#wkNext') };
   let list = [], cards = [], wPos = 0, wPosS = 0, wAct = -1, wRun = false;

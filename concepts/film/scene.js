@@ -19,17 +19,17 @@ function goStatic(why) {
 // ---------------------------------------------------------------- данные
 const VIDS = [
   { v: 'cat28lin', name: 'cat28lin', tag: 'концепт · портупеи и ремни' },
-  { v: 'miele', name: 'Шоурум Miele', tag: 'клиент · Пермь' },
   { v: 'masy', name: 'MASY', tag: 'клиент · бренд одежды' },
   { v: 'bonkombinezon', name: 'Bonkombinezon', tag: 'концепт · зимние комбинезоны' },
   { v: 'allyouall', name: 'All.', tag: 'концепт · мужская одежда' },
   { v: 'hamlet', name: 'Hamlet Coffee', tag: 'концепт · кофейня, Бруклин' },
 ];
+const NV = VIDS.length, LAST = NV - 1;
 
 // Монтажный лист: единица — один экран прокрутки.
 const K = {
   f1a: 0.55, f1b: 1.55,   // наезд сквозь букву «САЙТ»
-  s2a: 1.55, s2b: 4.45,   // шесть сайтов на весь экран
+  s2a: 1.55, s2b: 4.45,   // сайты из VIDS на весь экран
   f2a: 4.55, f2b: 5.35,   // отъезд из буквы «0 ₽»
   p1a: 6.1, p1b: 6.9,     // «0 ₽» → частицы → «24»
   p2a: 7.9, p2b: 8.6,     // «24» → «&»
@@ -719,26 +719,26 @@ async function boot() {
     // ===== 2. Сайты на весь экран
     const s2on = t > K.f1b - 0.12 && t < K.f2a + 0.02;
     screen.visible = s2on;
-    const u2 = clamp((t - K.s2a) / (K.s2b - K.s2a)) * 6;
-    let idx = Math.min(5, Math.floor(u2));
+    const u2 = clamp((t - K.s2a) / (K.s2b - K.s2a)) * NV;
+    let idx = Math.min(LAST, Math.floor(u2));
     const fr = u2 - idx;
     let mix = 0;
-    if (u2 < 6 && idx < 5 && fr > 0.7) mix = sm((fr - 0.7) / 0.3);
-    if (u2 >= 6) idx = 5;
+    if (u2 < NV && idx < LAST && fr > 0.7) mix = sm((fr - 0.7) / 0.3);
+    if (u2 >= NV) idx = LAST;
     if (s2on) {
       const su = screenMat.uniforms;
       su.uA.value = texOf(idx);
-      su.uB.value = texOf(Math.min(5, idx + 1));
+      su.uB.value = texOf(Math.min(LAST, idx + 1));
       su.uMix.value = mix;
       su.uFit.value = PORT ? 0.7 * smr(t, K.s2a, K.s2a + 0.35) * (1 - smr(t, K.s2b - 0.05, K.f2a)) : 0;
       su.uTime.value = time;
       want.add(idx);
-      if (idx < 5 && fr > 0.55) want.add(idx + 1);
+      if (idx < LAST && fr > 0.55) want.add(idx + 1);
     }
-    const clipShow = Math.min(5, idx + (mix > 0.5 ? 1 : 0));
+    const clipShow = Math.min(LAST, idx + (mix > 0.5 ? 1 : 0));
     if (clipShow !== shownClip) {
       shownClip = clipShow;
-      el.clipN.textContent = `0${clipShow + 1} / 06`;
+      el.clipN.textContent = `${String(clipShow + 1).padStart(2, '0')} / ${String(NV).padStart(2, '0')}`;
       el.clipName.textContent = VIDS[clipShow].name;
       el.clipTag.textContent = VIDS[clipShow].tag;
     }
@@ -750,10 +750,10 @@ async function boot() {
     setWord(words.zero, {
       opacity: t >= K.f2a ? 1 - smr(t, K.p1a - 0.05, K.p1a + 0.15) : 0,
       zoom: f2.z, cx: f2.cx, cy: f2.cy,
-      video: zv, lit: 1 - zv, vid: texOf(5), vidScale: 1,
+      video: zv, lit: 1 - zv, vid: texOf(LAST), vidScale: 1,
       extrude: smr(t, K.f2a + 0.35, K.f2b + 0.15),
     });
-    if (t > K.f2a - 0.15 && t < K.f2b) want.add(5);
+    if (t > K.f2a - 0.15 && t < K.f2b) want.add(LAST);
 
     // ===== 4. «24»
     const zH = 1 + 0.03 * seg(t, K.p1b, K.p2a);

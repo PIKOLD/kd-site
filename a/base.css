@@ -180,6 +180,7 @@ h3{font-size:21px;line-height:1.2;letter-spacing:-.012em}
 .case dl div{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;padding:11px 0;border-top:1px solid var(--edge);font-size:15.5px}
 .case dt{color:var(--mute)}.case dd{color:var(--soft)}
 .case .more{margin-top:auto;padding-top:6px}
+@media (min-width:861px){.case:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row}.case:last-child:nth-child(odd) .pic{flex:0 0 50%;aspect-ratio:auto;min-height:100%;border-bottom:0;border-right:1px solid var(--edge)}}
 @media (max-width:860px){.cases{grid-template-columns:minmax(0,1fr)}.case dl div{grid-template-columns:96px minmax(0,1fr)}}
 
 /* пакеты */

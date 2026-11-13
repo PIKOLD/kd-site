@@ -868,7 +868,6 @@ function finalTray() {
 
 /* ── содержимое веток ── */
 const WORKS = [
-  { v: 'miele', name: 'Шоурум Miele', desc: 'Пермь. Каталог и кабинет со складом', client: true, url: 'https://pikold.github.io/miele-perm-demo/' },
   { v: 'masy', name: 'MASY', desc: 'Бренд верхней одежды, Пермь', client: true, url: 'https://bymasy.ru/v1/' },
   { v: 'cat28lin', name: 'cat28lin', desc: 'Портупеи и ремни из кожи. С 3D', client: false, url: DEMO + 'cat28lin/' },
   { v: 'bonkombinezon', name: 'Bonkombinezon', desc: 'Зимние комбинезоны из Сибири', client: false, url: DEMO + 'bonkombinezon/' },
@@ -1066,13 +1065,12 @@ function flowWorks() {
   return speak(async () => {
     await say(K, 'Вот несколько. В карточках — живая прокрутка самих сайтов.');
     await say(K, workNode(WORKS[0]), { wide: true, type: 700, pause: 420 });
-    await say(K, workNode(WORKS[1]), { wide: true, type: 600, pause: 420 });
-    await say(D, 'Это клиентские. А вот концепт — придумали и собрали сами, без заказа.');
-    await say(D, workNode(WORKS[2]), { wide: true, type: 600, pause: 420 });
+    await say(D, 'Это клиентский. А вот концепт — придумали и собрали сами, без заказа.');
+    await say(D, workNode(WORKS[1]), { wide: true, type: 600, pause: 420 });
     if (skipped) {
+      await say(D, workNode(WORKS[2]), { wide: true });
       await say(D, workNode(WORKS[3]), { wide: true });
       await say(D, workNode(WORKS[4]), { wide: true });
-      await say(D, workNode(WORKS[5]), { wide: true });
     } else {
       remaining.unshift('more');
     }
@@ -1083,9 +1081,9 @@ function flowWorks() {
 function flowMore() {
   return speak(async () => {
     await say(D, 'Ещё три концепта.', { type: 500 });
+    await say(D, workNode(WORKS[2]), { wide: true, type: 600, pause: 420 });
     await say(D, workNode(WORKS[3]), { wide: true, type: 600, pause: 420 });
     await say(D, workNode(WORKS[4]), { wide: true, type: 600, pause: 420 });
-    await say(D, workNode(WORKS[5]), { wide: true, type: 600, pause: 420 });
     await say(K, 'Под вашу нишу покажем отдельно — напишите, чем занимаетесь.');
   });
 }

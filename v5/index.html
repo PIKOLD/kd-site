@@ -508,7 +508,7 @@ footer p+p{margin-top:8px}
 </div></section>
 
 <section class="sec" id="cases"><div class="wrap">
-  <div class="sec-h"><h2>Четыре истории подробнее</h2><p class="lead">Что было нужно, что мы сделали и сколько это заняло.</p></div>
+  <div class="sec-h"><h2>Три истории подробнее</h2><p class="lead">Что было нужно, что мы сделали и сколько это заняло.</p></div>
   <div class="tabs" id="caseTabs" role="tablist" aria-label="Истории клиентов"></div>
   <div id="casePanel" role="tabpanel"></div>
 </div></section>
@@ -802,7 +802,7 @@ footer p+p{margin-top:8px}
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeChat(true); closeSheet(); } });
 
   /* ── работы: полка ── */
-  const SIM = { 'miele-perm': 'catalog', masy: 'catalog' }, simOf = w => SIM[w.id] || (w.tag === '3d' ? 'flagship' : 'landing');
+  const SIM = { masy: 'catalog' }, simOf = w => SIM[w.id] || (w.tag === '3d' ? 'flagship' : 'landing');
   const FIL = [['best', 'Лучшие'], ['клиенты', 'Клиенты'], ['3d', 'С 3D'], ['услуги', 'Услуги'], ['мир', 'Европа и США']];
   const shelf = $('#shelf'), seg = $('#wkSeg');
   function showWorks(f) {
@@ -825,7 +825,7 @@ footer p+p{margin-top:8px}
   showWorks('best'); $('#kinds').textContent = K.foot.kinds;
 
   /* ── истории ── */
-  const CSIM = { 'miele-perm': 'catalog', masy: 'card', dajour: 'landing', 'pm-code': 'landing' };
+  const CSIM = { masy: 'card', dajour: 'landing', 'pm-code': 'landing' };
   const tabs = $('#caseTabs'), panel = $('#casePanel');
   function showCase(i) {
     const c = K.cases[i]; $$('button', tabs).forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.setAttribute('aria-pressed', k === i); b.tabIndex = k === i ? 0 : -1; });

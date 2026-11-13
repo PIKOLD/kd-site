@@ -872,7 +872,7 @@ var $=function(s,r){return (r||document).querySelector(s);};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
 var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var SHOTS='../../assets/shots/';
-var MASY=SHOTS+'masy.jpg', HAMLET=SHOTS+'hamlet-coffee-company.jpg', MIELE=SHOTS+'miele-perm.jpg';
+var MASY=SHOTS+'masy.jpg', HAMLET=SHOTS+'hamlet-coffee-company.jpg';
 var clamp=function(v,a,b){return Math.max(a,Math.min(b,v));};
 var fmt=function(n){return Math.round(n).toLocaleString('ru-RU');};
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
@@ -933,7 +933,7 @@ var BIZ={
     addr:'пр. Мира, 8',hours:'Пн–Сб 10:00–20:00',chap:['Тишина','Забота','Надёжность'],
     q:'Здравствуйте! Есть в наличии сушильная машина?',a:'Здравствуйте! Да, две модели — от 104 900 ₽. Посмотреть вживую можно сегодня до 20:00. Записать на показ?',book:'показ в шоуруме',
     order:['chap','svc','cat','ship','map','rev','about'],
-    photo:{img:MIELE,size:'auto 150%',pos:'80% 54%'},tiles:null},
+    photo:null,tiles:null},
   other:{label:'Другое',gen:'для вашего дела',name:'Ваше дело',tag:'Ваш сайт',dom:'ваш-сайт.рф',mood:'calm',
     nav:['Услуги','О нас','Контакты'],eye:'Ваше дело · ваш город',title:'Здесь будет ваш заголовок',
     sub:'Расскажите нам, чем занимаетесь, — напишем тексты и соберём первый экран за сутки.',cta:'Оставить заявку',

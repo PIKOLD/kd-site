@@ -575,7 +575,7 @@ html.dlg-open{overflow:hidden}
       </ul>
     </div>
     <div class="stack-w rv" style="--d:2">
-      <div class="stack" id="stack" role="img" aria-label="Скриншоты наших сайтов: шоурум Miele, бренд MASY, салон D'ajour и другие">
+      <div class="stack" id="stack" role="img" aria-label="Скриншоты наших сайтов: студия PM CODE, бренд MASY, салон D'ajour и другие">
         <figure class="sc" data-pos="2" data-i="2">
           <div class="sc-bar" aria-hidden="true"><i></i><i></i><i></i><span class="sc-name">D'ajour, салон-школа</span></div>
           <img src="../assets/shots/dajour.jpg" width="1000" height="500" alt="" decoding="async">
@@ -585,11 +585,11 @@ html.dlg-open{overflow:hidden}
           <img src="../assets/shots/masy.jpg" width="1000" height="500" alt="" decoding="async">
         </figure>
         <figure class="sc" data-pos="0" data-i="0">
-          <div class="sc-bar" aria-hidden="true"><i></i><i></i><i></i><span class="sc-name">Шоурум Miele, Пермь</span></div>
-          <img src="../assets/shots/miele-perm.jpg" width="1000" height="500" alt="" fetchpriority="high" decoding="async">
+          <div class="sc-bar" aria-hidden="true"><i></i><i></i><i></i><span class="sc-name">PM CODE, перманент</span></div>
+          <img src="../assets/shots/pm-code.jpg" width="1000" height="500" alt="" fetchpriority="high" decoding="async">
         </figure>
       </div>
-      <p class="stack-cap" aria-hidden="true"><b id="stN">01</b><span>Сейчас на экране: <span id="stName">Шоурум Miele, Пермь</span></span></p>
+      <p class="stack-cap" aria-hidden="true"><b id="stN">01</b><span>Сейчас на экране: <span id="stName">PM CODE, перманент</span></span></p>
     </div>
   </div>
 </section>
@@ -966,8 +966,6 @@ var EXTRAS={
 };
 var NICHES={salon:'Салон или студия красоты',shop:'Магазин или бренд одежды',auto:'Автосервис',cafe:'Кафе или ресторан',other:'Другое'};
 var WORKS=[
-  {id:'miele',shot:'miele-perm',video:'miele',name:'Шоурум Miele',niche:'Бытовая техника, Пермь',client:true,cat:'shop',url:'https://pikold.github.io/miele-perm-demo/',
-   what:['Каталог на 116 товаров.','Кабинет со складом — владелец видит остатки.','Удобно с телефона, открывается без VPN.']},
   {id:'masy',shot:'masy',video:'masy',name:'MASY',niche:'Бренд верхней одежды, Пермь',client:true,cat:'shop',url:'https://bymasy.ru/v1/',
    what:['Сайт бренда в его собственном стиле.','Модели и связь с брендом в пару нажатий.']},
   {id:'pmcode',shot:'pm-code',name:'PM CODE',niche:'Перманентный макияж, Петербург',client:true,cat:'service',url:'https://pikold.github.io/DEMO-PM-CODE/',
@@ -978,6 +976,8 @@ var WORKS=[
    what:['Наш демо-сайт уровня «Флагман» с 3D-сценой.','Показывает, каким может быть премиальный сайт бренда.']},
   {id:'bonk',shot:'bonkombinezon',video:'bonkombinezon',name:'Bonkombinezon',niche:'Зимние комбинезоны',client:false,cat:'shop',url:'https://pikold.github.io/demo-sites/bonkombinezon/',
    what:['Концепт сайта для бренда детской зимней одежды.','Сделали по своей инициативе, чтобы показать идею.']},
+  {id:'cat28lin',shot:'cat28lin',video:'cat28lin',name:'cat28lin',niche:'Портупеи и ремни из кожи',client:false,cat:'shop',url:'https://pikold.github.io/demo-sites/cat28lin/',
+   what:['Концепт витрины для бренда кожаных аксессуаров.','Сделали по своей инициативе, чтобы показать идею.']},
   {id:'hamlet',shot:'hamlet-coffee-company',video:'hamlet',name:'Hamlet Coffee',niche:'Кофейня, Бруклин',client:false,cat:'service',url:'https://pikold.github.io/demo-sites/hamlet-coffee-company/',
    what:['Концепт сайта для кофейни в США.','Сделали по своей инициативе, чтобы показать идею.']},
   {id:'kislota',shot:'kislota',name:'Кислота',niche:'Тату-салон',client:false,cat:'service',url:'https://pikold.github.io/demo-sites/kislota/',
@@ -1322,11 +1322,11 @@ if(hasIO){
 
 /* ---------- СТОПКА В ПЕРВОМ ЭКРАНЕ ---------- */
 var STACK=[
-  {id:'miele-perm',name:'Шоурум Miele, Пермь'},
+  {id:'pm-code',name:'PM CODE, перманент'},
   {id:'masy',name:'MASY, бренд одежды'},
   {id:'dajour',name:"D'ajour, салон-школа"},
   {id:'mgla',name:'МГЛА, парфюмерия с 3D'},
-  {id:'pm-code',name:'PM CODE, перманент'},
+  {id:'cat28lin',name:'cat28lin, портупеи и ремни'},
   {id:'hamlet-coffee-company',name:'Hamlet Coffee, кофейня'},
   {id:'bonkombinezon',name:'Bonkombinezon, комбинезоны'}
 ];

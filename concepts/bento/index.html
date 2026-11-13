@@ -613,7 +613,6 @@ a.wc:hover .wc-img img{transform:scale(1.04)}
   /* ── данные ── */
   const WV = [
     { v: 'cat28lin', name: 'cat28lin', what: 'Портупеи и ремни из кожи', kind: 'концепт', url: 'https://pikold.github.io/demo-sites/cat28lin/' },
-    { v: 'miele', name: 'Шоурум Miele', what: 'Каталог и кабинет, Пермь', kind: 'клиент', url: 'https://pikold.github.io/miele-perm-demo/' },
     { v: 'masy', name: 'MASY', what: 'Бренд одежды, Пермь', kind: 'клиент', url: 'https://bymasy.ru/v1/' },
     { v: 'bonkombinezon', name: 'Bonkombinezon', what: 'Зимние комбинезоны', kind: 'концепт', url: 'https://pikold.github.io/demo-sites/bonkombinezon/' },
     { v: 'allyouall', name: 'All.', what: 'Мужская одежда', kind: 'концепт', url: 'https://pikold.github.io/demo-sites/all-youall/' },
@@ -648,7 +647,6 @@ a.wc:hover .wc-img img{transform:scale(1.04)}
   ];
 
   const GRID9 = [
-    ['miele-perm', 'Шоурум Miele', 'Пермь. Каталог на 116 товаров, кабинет со складом', 'клиент', 'https://pikold.github.io/miele-perm-demo/'],
     ['mgla', 'МГЛА', 'Вымышленный бренд парфюмерии. Флакон из стекла, собранный в коде', 'демо-флагман', '../../flagship/index.html'],
     ['cat28lin', 'cat28lin', 'Портупеи и ремни из кожи', 'концепт', 'https://pikold.github.io/demo-sites/cat28lin/'],
     ['masy', 'MASY', 'Бренд верхней одежды, Пермь', 'клиент', 'https://bymasy.ru/v1/'],
@@ -656,11 +654,12 @@ a.wc:hover .wc-img img{transform:scale(1.04)}
     ['dajour', 'D’ajour', 'Салон-школа красоты, Пермь. Прайс на 125 процедур с поиском', 'клиент', 'https://pikold.github.io/dajour-demo/v9.html'],
     ['all-youall', 'All.', 'Мужская одежда, Москва', 'концепт', 'https://pikold.github.io/demo-sites/all-youall/'],
     ['hamlet-coffee-company', 'Hamlet Coffee', 'Кофейня в Бруклине. На английском', 'концепт', 'https://pikold.github.io/demo-sites/hamlet-coffee-company/'],
-    ['pm-code', 'PM CODE', 'Студия перманентного макияжа, Петербург', 'клиент', 'https://pikold.github.io/DEMO-PM-CODE/']
+    ['pm-code', 'PM CODE', 'Студия перманентного макияжа, Петербург', 'клиент', 'https://pikold.github.io/DEMO-PM-CODE/'],
+    ['vybor-avto', 'Выбор Авто', 'Автосалон автомобилей с пробегом', 'концепт', 'https://pikold.github.io/demo-sites-2/vybor-avto/']
   ];
 
   const MOSAIC = [
-    ['miele-perm', 'Miele'], ['mgla', 'МГЛА'], ['cat28lin', 'cat28lin'], ['masy', 'MASY'], ['bonkombinezon', 'Bonkombinezon'], ['dajour', 'D’ajour'],
+    ['malenkaya-aziya', 'Маленькая Азия'], ['mgla', 'МГЛА'], ['cat28lin', 'cat28lin'], ['masy', 'MASY'], ['bonkombinezon', 'Bonkombinezon'], ['dajour', 'D’ajour'],
     ['giorgio-bekleidungen-herrenm', 'Швейцария'], ['all-youall', 'All.'], ['hamlet-coffee-company', 'США'], ['vybor-avto', 'Выбор Авто'], ['fiesta-event', 'Fiesta'], ['pm-code', 'PM CODE'],
     ['barballetta', 'Barballetta'], ['goat-barbershop', 'США'], ['elkhovka-spa', 'Елховка SPA'], ['kislota', 'Кислота'], ['curate-collective', 'США'], ['blagorodnoe-atele', 'Благородное Ателье']
   ];
@@ -706,7 +705,7 @@ a.wc:hover .wc-img img{transform:scale(1.04)}
         <div class="d-card">${FLAG.us}<span><b>США</b><small>на английском</small></span></div>
       </div>
       <div class="mosaic">${MOSAIC.map(([id, cap]) => `<div class="mo"><img src="../../assets/shots/s/${id}.jpg" alt="" loading="lazy"><span>${cap}</span></div>`).join('')}</div>
-      <div class="d-foot"><span class="d-note">Большая часть — концепты: сайты, которые мы собрали сами и показали владельцам. Клиенты — шоурум Miele, MASY, PM CODE, D’ajour.</span></div>`,
+      <div class="d-foot"><span class="d-note">Большая часть — концепты: сайты, которые мы собрали сами и показали владельцам. Клиенты — MASY, PM CODE, D’ajour.</span></div>`,
 
     proc: () => head('Как работаем', 'Пять шагов. Платите после демо.', 'От первого сообщения до запуска — от недели. Сайт растёт по одной ссылке, можно заглянуть в любой момент.') +
       `<ol class="tl">${STEPS.map((s, i) => `<li><span class="n">${i + 1}</span><span><b>${s.name}</b><p>${s.text}</p></span><span class="tm">${s.time}</span></li>`).join('')}</ol>
@@ -1180,7 +1179,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const SHOTS = [
   { id: 'mgla', cap: 'МГЛА — наш демо-флагман с 3D' },
-  { id: 'miele-perm', cap: 'Шоурум Miele — клиент, Пермь' },
+  { id: 'pm-code', cap: 'PM CODE — клиент, Петербург' },
   { id: 'masy', cap: 'MASY — клиент, Пермь' },
   { id: 'cat28lin', cap: 'cat28lin — концепт' }
 ];
